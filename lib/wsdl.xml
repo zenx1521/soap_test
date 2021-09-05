@@ -1,0 +1,81 @@
+<definitions name = "HelloService"
+   targetNamespace = "http://www.examples.com/wsdl/HelloService.wsdl"
+   xmlns = "http://schemas.xmlsoap.org/wsdl/"
+   xmlns:soap = "http://schemas.xmlsoap.org/wsdl/soap/"
+   xmlns:tns = "http://www.examples.com/wsdl/HelloService.wsdl"
+   xmlns:xsd = "http://www.w3.org/2001/XMLSchema">
+ 
+   <message name = "integer_to_string">
+      <part name = "value" type = "xsd:int"/>
+   </message>
+	
+   <message name = "integer_to_string_response">
+      <part name = "result" type = "xsd:string"/>
+   </message>
+
+    <message name = "concat">
+      <part name = "value_1" type = "xsd:string"/>
+      <part name = "value_2" type = "xsd:string"/>
+   </message>
+
+    <message name = "concat_response">
+      <part name = "result" type = "xsd:string"/>
+   </message>
+
+   <portType name = "wsdl_test_port">
+      <operation name = "integer_to_string">
+         <input message = "tns:integer_to_string"/>
+         <output message = "tns:integer_to_string_response"/>
+      </operation>
+
+      <operation name = "concat">
+         <input message = "tns:concat"/>
+         <output message = "tns:concat_response"/>
+      </operation>
+   </portType>
+
+   <binding name = "wsdl_test_binding" type = "tns:wsdl_test_port">
+      <soap:binding style = "rpc"
+         transport = "http://schemas.xmlsoap.org/soap/http"/>
+      <operation name = "integer_to_string">
+         <soap:operation soapAction = "integer_to_string"/>
+         <input>
+            <soap:body
+               encodingStyle = "http://schemas.xmlsoap.org/soap/encoding/"
+               namespace = "urn:WsdlTest"
+               use = "encoded"/>
+         </input>
+		
+         <output>
+            <soap:body
+               encodingStyle = "http://schemas.xmlsoap.org/soap/encoding/"
+               namespace = "urn:WsdlTest"
+               use = "encoded"/>
+         </output>
+      </operation>
+      <operation name = "concat">
+        <soap:operation soapAction = "concat"/>
+        <input>
+          <soap:body
+              encodingStyle = "http://schemas.xmlsoap.org/soap/encoding/"
+              namespace = "urn:WsdlTest"
+              use = "encoded"/>
+        </input>
+  
+        <output>
+          <soap:body
+              encodingStyle = "http://schemas.xmlsoap.org/soap/encoding/"
+              namespace = "urn:WsdlTest"
+              use = "encoded"/>
+        </output>
+    </operation>
+   </binding>
+
+   <service name = "wsdl_test_service">
+      <documentation>WSDL File for HelloService</documentation>
+      <port binding = "tns:wsdl_test_binding" name = "wsdl_test_port">
+         <soap:address
+            location = "http://localhost:3000/actions" />
+      </port>
+   </service>
+</definitions>
