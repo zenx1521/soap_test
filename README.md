@@ -2,7 +2,9 @@ Soap_test
 
 ruby version: 3.0.0p0
 
-Usage:
+USAGE
+
+Open rails server and rails console and then type in the console:
 
 `client = Savon::Client.new(wsdl: "http://localhost:3000/wsdl")`
 
