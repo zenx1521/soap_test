@@ -6,7 +6,6 @@ class ConcatService < ApplicationService
   end
 
   def call
-    byebug
     atrs[:value_1] + atrs[:value_2]
   end
 end 

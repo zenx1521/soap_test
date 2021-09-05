@@ -161,8 +161,6 @@ GEM
       addressable
       httpi (~> 2.0)
       nokogiri (>= 1.4.2)
-    wash_out (0.12.0)
-      nori (>= 2.0.0)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -175,14 +173,12 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   listen (~> 3.3)
-  nokogiri
   puma (~> 5.0)
   rails (~> 6.1.4, >= 6.1.4.1)
   savon
   spring
   sqlite3 (~> 1.4)
   tzinfo-data
-  wash_out
 
 RUBY VERSION
    ruby 3.0.0p0
